@@ -136,9 +136,16 @@ var Obstacle = function(x, y, width, height){
       this.newPosition = function(){
         this.x += this.speedX;
         this.y += this.speedY
+
       }
     }
-
+    function checkCollision(obstacle){
+        if((obstacle.y >= currentGame.avatar.y && obstacle.y <= currentGame.avatar.y + currentGame.avatar.height)&&(obstacle.x +obstacle.width>= currentGame.avatar.x &&obstacle.x <= currentGame.avatar.x+currentGame.avatar.width)){
+          console.log("yum");
+          return true;
+        } 
+        
+    }
     function updateCanvas(){
       ctx.clearRect(0, 0, 1400, 600);
       
@@ -155,9 +162,11 @@ var Obstacle = function(x, y, width, height){
       for(var i = 0; i < currentGame.obstacles.length; i++){
         currentGame.obstacles[i].y += 10;
         currentGame.obstacles[i].update();
-        
-        if(taco)
-    }
+        if (checkCollision(currentGame.obstacles[i])){
+          currentGame.obstacles.splice(i,1);
+          score += 1;
+        }
+      }
   }
 };
 
