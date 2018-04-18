@@ -3,6 +3,7 @@ var Game = function(){
     this.obstacles = [];  
     this.frames = 0;
     this.score = 0;
+    this.lives = 5;
   }
 
 

@@ -2,13 +2,15 @@ window.onload = function(){
     var currentGame;
     var canStart = true;
     var score = 0;
+    var lives = 5;
     
     function scoreBoard(){
       this.canvas = document.getElementById('theCanvas');
       this.ctx = myCanvas.getContext('2d');
       this.ctx.fillStyle="black";
       this.ctx.font = "50px Arial";
-       this.ctx.fillText("Score: " + currentGame.score, 1150, 50);
+      this.ctx.fillText("Score: " + currentGame.score, 1150, 50);
+      this.ctx.fillText("Lives: " + currentGame.lives, 1150, 100);
     }
     
     var board = {score: 0, frames: 0}
@@ -118,10 +120,9 @@ Avatar.prototype.canMove = function(futureX, futureY){
           currentGame.score++;
           console.log(currentGame.score);
           return true;
-          board.score ++;
         } 
         else if (obstacle.y >= 590){
-          obstacle.splice(i,1);
+          currentGame.lives--;
         }
         
       
@@ -132,7 +133,7 @@ Avatar.prototype.canMove = function(futureX, futureY){
       currentGame.frames++;
       scoreBoard();
 
-      if(currentGame.frames % 45 === 1){
+      if(currentGame.frames % 33 === 1){
         tacoX = Math.floor(Math.random() * 1200);
         tacoWidth = 60;
         tacoHeight = 60;
@@ -142,12 +143,15 @@ Avatar.prototype.canMove = function(futureX, futureY){
         currentGame.obstacles[i].y += 10;
         currentGame.obstacles[i].update();
         if (checkCollision(currentGame.obstacles[i])){
-        
           currentGame.obstacles.splice(i,1);
         }
-        else if (currentGame.obstacles[i].y >= 590){
-          currentGame.obstacles[i].splice(i,1);
+        
+        else if(currentGame.obstacles[i].y >= 590){
+          currentGame.obstacles.splice(i,1);
         }
+      }
+      if(currentGame.lives <= 0){
+        alert("GAME OVER");
       }
   }
 };
