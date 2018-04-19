@@ -14,14 +14,12 @@ window.onload = function(){
       this.ctx.fillText("Lives: " + currentGame.lives, 100, 50);
     }
     
-    var board = {score: 0, frames: 0}
-
 var Avatar = function(){
     this.x = 650;
-    this.y = 490;
+    this.y = 480;
     this.height = 100;
     this.width = 100;
-    this.img = 'images/hungry-emoji1.png';
+    this.img = 'images/tito1.png';
 
 
   }
@@ -31,11 +29,11 @@ Avatar.prototype.drawAvatar = function(){
     // theImage.src = this.img;
     var that = this;
     // theImage.onload = function(){
-        ctx.drawImage(theImage, that.x, that.y, that.width, that.height);
-        // console.log(that.x, that.y, this.width, this.height)
-    // }
-    theImage.src = 'images/tito.png';
-
+      ctx.drawImage(theImage, that.x, that.y, that.width, that.height);
+      // console.log(that.x, that.y, this.width, this.height)
+      // }
+      
+      theImage.src = 'images/tito1.png';
     // console.log("image is: ", theImage)
 }
 
@@ -80,10 +78,8 @@ Avatar.prototype.canMove = function(futureX, futureY){
         currentGame.avatar.drawAvatar();
         setInterval(updateCanvas, 50);
         scoreBoard();
-  
       };
-      canStart = false;
-  
+        canStart = false;
     }
     
     document.onkeydown  = function(event){
@@ -138,9 +134,9 @@ Avatar.prototype.canMove = function(futureX, futureY){
 
       if(currentGame.frames % 30 === 1){
         if(isGameOver === false){
-          tacoX = Math.floor(Math.random() * 1200);
-          tacoWidth = 60;
-          tacoHeight = 60;
+          tacoX = Math.floor(Math.random() * 1100);
+          tacoWidth = 50;
+          tacoHeight = 50;
           currentGame.obstacles.push(new Component(tacoWidth, tacoHeight, tacoX, 0));
         }
       }

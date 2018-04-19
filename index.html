@@ -11,23 +11,21 @@
 </head>
 <body>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="columns">
       <h1>Dos Bros Tacos</h1>
+      <img class="bros" src="images/bros2.png">
     </div>
-    <div class="col-sm-4">
-      <h1>Rules</h1>
-      <p>Catch as many tacos as you can moving the left and right arrows. If you drop more the 5 tacos the game is over.</p>
-      <img src="./images/arrows.png" alt="" class="arrows-img">
+    <div class="columns">
+      <h3>Rules</h3>
+       <a>Use the left and right arrow keys to catch the tacos falling from the sky. Your life count will begin at 5. For every taco that you drop you will lose a live and the game will be over. GOOD LUCK!!</a>
+        <img class="arrows" src="images/arrows2.png">
     </div>
-    <div class="col-sm-4">
+    <div class="columns">
       <button id="start-button">StartGame</button>
     </div>
   </div>
   <div id="game-board">
-    <canvas id="theCanvas" width="1400" height="600" style="border: 3px dotted red">
-
-    </canvas>
-
+    <canvas id="theCanvas" width="1400" height="590"></canvas>
   </div>
 </body>
 </html>

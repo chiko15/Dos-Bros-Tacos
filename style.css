@@ -1,9 +1,29 @@
 body {
-  background-color: aqua;
+  background-color: gray;
+}
+
+.container {
+
+}
+
+.row {
+  display: inline-flex;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.columns {
+  justify-content: space-between;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+
 }
 
 #start-button {
   font-size: 50px;
+  align-self: flex-end;
+  background-color: gray;
 }
 
 #theCanvas {
@@ -13,13 +33,18 @@ body {
 }
 
 #game-board {
-  padding: 30px
+  padding-left: 240px
 }
 
-.row {
-  text-align: center;
-  padding: 20px;
-  justify-content: center;
-  display: block;
-  align-items: center;
+.bros {
+  background-color: gray;
+  width: 300px;
+  height: 300px;
 }
+
+.arrows {
+  height: 250px;
+  width: 250px;
+}
+
+
