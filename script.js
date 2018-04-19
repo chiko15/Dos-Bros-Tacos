@@ -3,6 +3,7 @@ window.onload = function(){
     var canStart = true;
     var score = 0;
     var lives = 5;
+    var isGameOver = false;
     
     function scoreBoard(){
       this.canvas = document.getElementById('theCanvas');
@@ -10,7 +11,7 @@ window.onload = function(){
       this.ctx.fillStyle="black";
       this.ctx.font = "50px Arial";
       this.ctx.fillText("Score: " + currentGame.score, 1150, 50);
-      this.ctx.fillText("Lives: " + currentGame.lives, 1150, 100);
+      this.ctx.fillText("Lives: " + currentGame.lives, 100, 50);
     }
     
     var board = {score: 0, frames: 0}
@@ -33,7 +34,7 @@ Avatar.prototype.drawAvatar = function(){
         ctx.drawImage(theImage, that.x, that.y, that.width, that.height);
         // console.log(that.x, that.y, this.width, this.height)
     // }
-    theImage.src = 'images/hungry-emoji1.png';
+    theImage.src = 'images/tito.png';
 
     // console.log("image is: ", theImage)
 }
@@ -122,7 +123,9 @@ Avatar.prototype.canMove = function(futureX, futureY){
           return true;
         } 
         else if (obstacle.y >= 590){
-          currentGame.lives--;
+          if(currentGame.lives > 0){
+            currentGame.lives--;
+          }
         }
         
       
@@ -133,12 +136,15 @@ Avatar.prototype.canMove = function(futureX, futureY){
       currentGame.frames++;
       scoreBoard();
 
-      if(currentGame.frames % 33 === 1){
-        tacoX = Math.floor(Math.random() * 1200);
-        tacoWidth = 60;
-        tacoHeight = 60;
-        currentGame.obstacles.push(new Component(tacoWidth, tacoHeight, tacoX, 0));
+      if(currentGame.frames % 30 === 1){
+        if(isGameOver === false){
+          tacoX = Math.floor(Math.random() * 1200);
+          tacoWidth = 60;
+          tacoHeight = 60;
+          currentGame.obstacles.push(new Component(tacoWidth, tacoHeight, tacoX, 0));
+        }
       }
+
       for(var i = 0; i < currentGame.obstacles.length; i++){
         currentGame.obstacles[i].y += 10;
         currentGame.obstacles[i].update();
@@ -151,7 +157,13 @@ Avatar.prototype.canMove = function(futureX, futureY){
         }
       }
       if(currentGame.lives <= 0){
-        alert("GAME OVER");
+        isGameOver = true;
+        setTimeout(function(){
+          ctx.clearRect(0, 0, 1400, 600);
+          location.reload();
+        }, 3000);
+        ctx.fillStyle = "white";
+        ctx.fillText("GAME OVER", 600, 300);
       }
   }
 };

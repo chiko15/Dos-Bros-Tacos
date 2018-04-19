@@ -9,8 +9,6 @@ body {
 #theCanvas {
   background-image: url('images/background.png');
   background-size: contain;
-  /* height: 800px; */
-  /* width: 1000px; */
   background-repeat: no-repeat;
 }
 
