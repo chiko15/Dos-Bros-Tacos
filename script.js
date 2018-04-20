@@ -66,11 +66,11 @@ Avatar.prototype.canMove = function(futureX, futureY){
   
   var myCanvas = document.getElementById('theCanvas');
     var ctx = myCanvas.getContext('2d');
-    document.getElementById("start-button").onclick = function() {
+    $(document).ready(function() {
       startGame();
-    };
-  
-    function startGame() {
+
+    })
+    function startGame(){
       if(canStart){
         currentGame = new Game();
         var theAvatar = new Avatar();
@@ -132,7 +132,7 @@ Avatar.prototype.canMove = function(futureX, futureY){
       currentGame.frames++;
       scoreBoard();
 
-      if(currentGame.frames % 30 === 1){
+      if(currentGame.frames % 25 === 1){
         if(isGameOver === false){
           tacoX = Math.floor(Math.random() * 1100);
           tacoWidth = 50;
@@ -156,11 +156,16 @@ Avatar.prototype.canMove = function(futureX, futureY){
         isGameOver = true;
         setTimeout(function(){
           ctx.clearRect(0, 0, 1400, 600);
-          location.reload();
         }, 3000);
         ctx.fillStyle = "white";
         ctx.fillText("GAME OVER", 600, 300);
       }
+      if(isGameOver === true){
+        setTimeout(function(){
+          alert("You have lost all of your lives. To give it another try hit ok..");
+        }, 1);
+        location.reload();
+    }
   }
 };
 

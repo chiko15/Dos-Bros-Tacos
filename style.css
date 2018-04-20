@@ -1,15 +1,15 @@
 body {
   background-color: gray;
 }
-
-.container {
-
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .row {
   display: inline-flex;
-  padding-left: 200px;
-  padding-right: 200px;
+  /* padding-left: 200px;
+  padding-right: 200px; */
+  padding: 180px;
 }
 
 .columns {
@@ -33,7 +33,7 @@ body {
 }
 
 #game-board {
-  padding-left: 140px
+  padding: 100px;
 }
 
 .bros {
@@ -45,6 +45,16 @@ body {
 .arrows {
   height: 250px;
   width: 250px;
+}
+.btn {
+  text-decoration: none;
+  padding: 10px 40px;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+}
+.start {
+  margin-bottom: 50px;
 }
 
 
