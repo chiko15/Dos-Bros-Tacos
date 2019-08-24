@@ -132,9 +132,9 @@ Avatar.prototype.canMove = function(futureX, futureY){
       currentGame.frames++;
       scoreBoard();
 
-      if(currentGame.frames % 10 === 1){
+      if(currentGame.frames % 5 === 1){
         if(isGameOver === false){
-          tacoX = Math.floor(Math.random() * 1100);
+          tacoX = Math.floor(Math.random() * 500);
           tacoWidth = 50;
           tacoHeight = 50;
           currentGame.obstacles.push(new Component(tacoWidth, tacoHeight, tacoX, 0));
