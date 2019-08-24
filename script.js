@@ -148,7 +148,7 @@ Avatar.prototype.canMove = function(futureX, futureY){
           currentGame.obstacles.splice(i,1);
         }
         
-        else if(currentGame.obstacles[i].y >= 590){
+        else if(currentGame.obstacles[i].y >= 900){
           currentGame.obstacles.splice(i,1);
         }
       }
